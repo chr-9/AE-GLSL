@@ -66,20 +66,26 @@ extern PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC glGetFramebufferAttachmen
 extern PFNGLGENERATEMIPMAPEXTPROC glGenerateMipmapEXT = NULL;
 
 // GL_ARB_shader_objects
-extern PFNGLCREATEPROGRAMOBJECTARBPROC  glCreateProgramObjectARB  = NULL;
-extern PFNGLDELETEOBJECTARBPROC         glDeleteObjectARB         = NULL;
-extern PFNGLUSEPROGRAMOBJECTARBPROC     glUseProgramObjectARB     = NULL;
-extern PFNGLCREATESHADEROBJECTARBPROC   glCreateShaderObjectARB   = NULL;
-extern PFNGLSHADERSOURCEARBPROC         glShaderSourceARB         = NULL;
-extern PFNGLCOMPILESHADERARBPROC        glCompileShaderARB        = NULL;
+extern PFNGLCREATEPROGRAMOBJECTARBPROC  glCreateProgramObjectARB = NULL;
+extern PFNGLDELETEOBJECTARBPROC         glDeleteObjectARB = NULL;
+extern PFNGLUSEPROGRAMOBJECTARBPROC     glUseProgramObjectARB = NULL;
+extern PFNGLCREATESHADEROBJECTARBPROC   glCreateShaderObjectARB = NULL;
+extern PFNGLSHADERSOURCEARBPROC         glShaderSourceARB = NULL;
+extern PFNGLCOMPILESHADERARBPROC        glCompileShaderARB = NULL;
 extern PFNGLGETOBJECTPARAMETERIVARBPROC glGetObjectParameterivARB = NULL;
-extern PFNGLATTACHOBJECTARBPROC         glAttachObjectARB         = NULL;
-extern PFNGLGETINFOLOGARBPROC           glGetInfoLogARB           = NULL;
-extern PFNGLLINKPROGRAMARBPROC          glLinkProgramARB          = NULL;
-extern PFNGLGETUNIFORMLOCATIONARBPROC   glGetUniformLocationARB   = NULL;
-extern PFNGLUNIFORM4FARBPROC            glUniform4fARB            = NULL;
-extern PFNGLUNIFORM1IARBPROC            glUniform1iARB            = NULL;
-extern PFNGLACTIVETEXTUREPROC			glActiveTexture			  = NULL;
+extern PFNGLATTACHOBJECTARBPROC         glAttachObjectARB = NULL;
+extern PFNGLGETINFOLOGARBPROC           glGetInfoLogARB = NULL;
+extern PFNGLLINKPROGRAMARBPROC          glLinkProgramARB = NULL;
+extern PFNGLGETUNIFORMLOCATIONARBPROC   glGetUniformLocationARB = NULL;
+extern PFNGLUNIFORM1IARBPROC            glUniform1iARB = NULL;
+extern PFNGLUNIFORM2IARBPROC            glUniform2iARB = NULL;
+extern PFNGLUNIFORM3IARBPROC            glUniform3iARB = NULL;
+extern PFNGLUNIFORM4IARBPROC            glUniform4iARB = NULL;
+extern PFNGLUNIFORM1FARBPROC            glUniform1fARB = NULL;
+extern PFNGLUNIFORM2FARBPROC            glUniform2fARB = NULL;
+extern PFNGLUNIFORM3FARBPROC            glUniform3fARB = NULL;
+extern PFNGLUNIFORM4FARBPROC            glUniform4fARB = NULL;
+extern PFNGLACTIVETEXTUREPROC			glActiveTexture = NULL;
 
 #elif defined(AE_OS_MAC)
 //[TODO]: AFAIK, not needed
@@ -500,16 +506,66 @@ AESDK_OpenGL_Err AESDK_OpenGL_BindTextureToTarget(AESDK_OpenGL_EffectCommonData&
 }
 
 /*
-** Bind vec4 [WIP]
+** UniformNi
 */
-AESDK_OpenGL_Err ParamToTarget(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLfloat inValue0, GLfloat inValue1, GLfloat inValue2, GLfloat inValue3)
+// 1i
+AESDK_OpenGL_Err ValueToTarget1i(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLint inValue0)
 {
 	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
-	//glActiveTexture(GL_TEXTURE0);
-	//glBindTexture(GL_TEXTURE_2D, inValue);
+	glUniform1iARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0);
+	return result;
+}
+// 2i
+AESDK_OpenGL_Err ValueToTarget2i(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLint inValue0, GLint inValue1)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
+	glUniform2iARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0, inValue1);
+	return result;
+}
+// 3i
+AESDK_OpenGL_Err ValueToTarget3i(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLint inValue0, GLint inValue1, GLint inValue2)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
+	glUniform3iARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0, inValue1, inValue2);
+	return result;
+}
+// 4i
+AESDK_OpenGL_Err ValueToTarget4i(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLint inValue0, GLint inValue1, GLint inValue2, GLint inValue3)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
+	glUniform4iARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0, inValue1, inValue2, inValue3);
+	return result;
+}
+
+/*
+** UniformNf
+*/
+// 1f
+AESDK_OpenGL_Err ValueToTarget1f(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLfloat inValue0)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
+	glUniform1fARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0);
+	return result;
+}
+// 2f
+AESDK_OpenGL_Err ValueToTarget2f(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLfloat inValue0, GLfloat inValue1)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
+	glUniform2fARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0, inValue1);
+	return result;
+}
+// 3f
+AESDK_OpenGL_Err ValueToTarget3f(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLfloat inValue0, GLfloat inValue1, GLfloat inValue2)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
+	glUniform3fARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0, inValue1, inValue2);
+	return result;
+}
+// 4f
+AESDK_OpenGL_Err ValueToTarget4f(AESDK_OpenGL_EffectCommonData& inData, string inTargetName, GLfloat inValue0, GLfloat inValue1, GLfloat inValue2, GLfloat inValue3)
+{
+	AESDK_OpenGL_Err result = AESDK_OpenGL_OK;
 	glUniform4fARB(glGetUniformLocationARB(inData.mProgramObjSu, inTargetName.c_str()), inValue0, inValue1, inValue2, inValue3);
-
-
 	return result;
 }
 
