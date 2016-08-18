@@ -45,18 +45,12 @@ typedef float				fpshort;
 #define	BUILD_VERSION	1
 
 
-/* Parameter defaults */
-
-#define	GLATOR_SLIDER_MIN		0
-#define	GLATOR_SLIDER_MAX		100
-#define	GLATOR_SLIDER_DFLT		0
-
 enum {
 	GLATOR_INPUT = 0,
-	GLATOR_SLIDER0,
-	GLATOR_SLIDER1,
-	GLATOR_SLIDER2,
-	GLATOR_SLIDER3,
+	SLIDER0,
+	SLIDER1,
+	SLIDER2,
+	SLIDER3,
 	GLATOR_NUM_PARAMS
 };
 
