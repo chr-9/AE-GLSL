@@ -1,3 +1,7 @@
 ﻿# AE_GLSL
 
-Use GLSL shaders in After Effects.
+The plugin to implement GLSL in After Effects.
+
+## Lincense
+
+This repository is published under a MIT License. See the included LICENSE file.
