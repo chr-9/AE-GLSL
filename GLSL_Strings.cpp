@@ -9,7 +9,7 @@ typedef struct {
 
 TableString		g_strs[StrID_NUMTYPES] = {
 	StrID_NONE,						"",
-	StrID_Name,						"AE-GLSL",
+	StrID_Name,						"GLSLGlow",
 	StrID_Description,				"wip",
 	StrID_Err_LoadSuite,			"Error loading suite.",
 	StrID_Err_FreeSuite,			"Error releasing suite.",

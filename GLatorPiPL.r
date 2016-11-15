@@ -17,7 +17,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [3] */
 		Category {
-			"test"
+			"GLSL"
 		},
 #ifdef AE_OS_WIN
 	#ifdef AE_PROC_INTELx64
@@ -60,7 +60,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [11] */
 		AE_Effect_Match_Name {
-			"ADBE glsltest"
+			"ADBE glsl"
 		},
 		/* [12] */
 		AE_Reserved_Info {

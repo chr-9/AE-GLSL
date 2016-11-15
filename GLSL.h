@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef GLATOR_H
-#define GLATOR_H
+#ifndef GLSL_H
+#define GLSL_H
 
 typedef unsigned char		u_char;
 typedef unsigned short		u_short;
@@ -46,12 +46,12 @@ typedef float				fpshort;
 
 
 enum {
-	GLATOR_INPUT = 0,
+	GLSL_INPUT = 0,
 	SLIDER0,
 	SLIDER1,
 	SLIDER2,
 	SLIDER3,
-	GLATOR_NUM_PARAMS
+	GLSL_NUM_PARAMS
 };
 
 enum {
@@ -88,4 +88,4 @@ inline u_char AlphaLookup(u_int16 inValSu, u_int16 inMaxSu)
 }
 #endif
 
-#endif // GLATOR_H
+#endif // GLSL_H

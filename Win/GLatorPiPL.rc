@@ -23,7 +23,7 @@ BEGIN
 	"gtac", 
 	0, 0x0,
 	8, 0x0,
-	"\x04test\0\0\0", 
+	"\x04GLSL\0\0\0", 
 
 	"MIB8",
 	"4668", 
@@ -70,8 +70,8 @@ BEGIN
 	"MIB8",
 	"ANMe",
 	0, 0x0,
-	16, 0x0,
-	"\x0DADBE glsltest\0\0", 
+	12, 0x0,
+	"\x09ADBE glsl\0\0", 
 
 	"MIB8",
 	0x6165464CL, 
