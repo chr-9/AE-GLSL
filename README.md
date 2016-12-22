@@ -1,6 +1,7 @@
 ﻿# AE_GLSL
 
-The plugin to implement GLSL in After Effects.
+[After Effects CC 2017 Plug-in SDK](https://www.adobe.com/devnet/aftereffects/sdk/cc2017.html "After Effects CC 2017 Plug-in SDK") was released.
+GLSL is now available in GLator example.
 
 ## Lincense
 
